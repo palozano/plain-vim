@@ -65,4 +65,6 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 
 " Installed plugins with Vim's plugin manager
 " GitGutter
-" Fugitive vim
+" Fugitive.vim
+" Surround.vim
+" Repeat.vim
