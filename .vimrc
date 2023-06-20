@@ -50,6 +50,11 @@ set confirm
 set laststatus=2
 "set statusline=(file\ ->\ %F)%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\ of\ %L,\ col\ %c)
 
+set path+=**
+
+" Remaps
+imap jj <Esc>
+
 
 " GitGutter
 let mapleader="\<Space>"
