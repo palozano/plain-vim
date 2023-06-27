@@ -20,6 +20,8 @@ set noerrorbells
 set visualbell
 set mouse=a
 set title
+" unsets the last search pattern pressing return
+nnoremap <silent> <CR> :noh<CR><CR>
 
 "set noswapfile
 set directory=$HOME/.vim/swp//
@@ -54,6 +56,7 @@ set path+=**
 
 " Remaps
 imap jj <Esc>
+imap jk <Esc>
 
 
 " GitGutter
