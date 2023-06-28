@@ -46,29 +46,51 @@ set scrolloff=3
 set confirm
 "set nomodeline  "ignore file's mode lines, uses vimrc config
 
+set path+=**
+
 "set spell
 "set spelllang=de
 
-set laststatus=2
-set statusline=(file\ ->\ %F)\ %m%r%h%w\ %{FugitiveStatusline()}%=(%{&ff}/%Y)\ (line\ %l\ of\ %L,\ col\ %c)
+" Better status line
+" status bar colors
+au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=black ctermbg=magenta
+au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
+hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
 
-set path+=**
+" status bar itself
+set laststatus=2
+set statusline=
+" set statusline+=(file\ ->\ %F) 
+set statusline+=%1*(%F)
+set statusline+=%1*%m%r%h%w                         " modified, read-only, write
+set statusline+=%2*\ %{FugitiveStatusline()}        " git branch
+set statusline+=%=                                  " switch to right side
+set statusline+=%2*(%{''.(&fenc!=''?&fenc:&enc).''} " encoding
+set statusline+=\ %{&ff}/%Y)\                       " fileformat and filetype
+set statusline+=%1*(col:\ %c\,\ ln:\ %l/%L)         " position in file
+
+hi User1 ctermfg=007 ctermbg=239 guibg=#4e4e4e guifg=#adadad
+hi User2 ctermfg=007 ctermbg=236 guibg=#303030 guifg=#adadad
 
 " Better leader key
 let mapleader="\<Space>"
 
-" Easier opening of the explorer 
-
 " Remaps
 imap jj <Esc>
 imap jk <Esc>
+
+" Easier toggle of the explorer 
+let g:netrw_winsize = 15
+nmap <Leader>e :Lexplore<CR>
 
 " Uncomment the following to have Vim jump to the last position when reopening a file
 if has("autocmd")
    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" =======
 " CONFIGS
+" =======
 
 " GitGutter config
 " faster update time
@@ -80,6 +102,9 @@ nmap <Leader>gp <Plug>(GitGutterPrevHunk)  " git previous
 nmap <Leader>ga <Plug>(GitGutterStageHunk)  " git add (chunk)
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 
+" Easy-align config
+nmap <Leader>ga <Plug>(EasyAlign)
+xmap <Leader>ga <Plug>(EasyAlign)
 
 " Installed plugins with Vim's plugin manager
 " GitGutter
@@ -88,3 +113,4 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 " Repeat.vim
 " Commentary.vim
 " Sensible.vim
+" vim-easy-align
