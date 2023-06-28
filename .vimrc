@@ -58,9 +58,16 @@ set path+=**
 imap jj <Esc>
 imap jk <Esc>
 
+" Uncomment the following to have Vim jump to the last position when reopening a file
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+"
+"
+" Better leader key
+let mapleader="\<Space>"
 
 " GitGutter
-let mapleader="\<Space>"
 " faster update time
 set updatetime=250
 " Jump between hunks
