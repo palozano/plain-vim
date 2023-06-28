@@ -99,14 +99,18 @@ set updatetime=250
 nmap <Leader>gn <Plug>(GitGutterNextHunk)  " git next
 nmap <Leader>gp <Plug>(GitGutterPrevHunk)  " git previous
 " Hunk-add and hunk-revert for chunk staging
-nmap <Leader>ga <Plug>(GitGutterStageHunk)  " git add (chunk)
+nmap <Leader>gs <Plug>(GitGutterStageHunk)  " git add (chunk)
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 
 " Easy-align config
 nmap <Leader>ga <Plug>(EasyAlign)
 xmap <Leader>ga <Plug>(EasyAlign)
 
-" Installed plugins with Vim's plugin manager
+" Twiggy
+" nmap <Leader>b <Plug>(Twiggy)
+nmap <Leader>gb :Twiggy<CR>
+
+" Installed plugins with Vim's plugin manager:
 " GitGutter
 " Fugitive.vim
 " Surround.vim
@@ -114,3 +118,13 @@ xmap <Leader>ga <Plug>(EasyAlign)
 " Commentary.vim
 " Sensible.vim
 " vim-easy-align
+" vim-twiggy.vim
+"
+"
+" Follow this flow, with proper replacements:
+"
+" $ mkdir -p ~/.vim/pack/<GITHUB-USER>/start
+" $ cd ~/.vim/pack/<GITHUB-USER>/start
+" $ git clone https://github.com/<GITHUB-USER>/<PLUGIN>
+" $ vim -u NONE -c "helptags <PLUGIN>/doc" -c q
+"
