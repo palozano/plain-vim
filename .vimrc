@@ -67,7 +67,7 @@ endif
 " Better leader key
 let mapleader="\<Space>"
 
-" GitGutter
+" GitGutter config
 " faster update time
 set updatetime=250
 " Jump between hunks
@@ -83,3 +83,4 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 " Fugitive.vim
 " Surround.vim
 " Repeat.vim
+" Commentary
