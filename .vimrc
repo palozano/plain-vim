@@ -9,7 +9,7 @@ set hidden
 "let g:netrw_browse_split = 4
 set number
 "set relativenumber
-colorscheme darcula "vividchalk, industry, darcula
+colorscheme darcula "Options that've liked so far: vividchalk, industry, darcula
 "set cursorline
 syntax enable
 set re=0
@@ -50,9 +50,14 @@ set confirm
 "set spelllang=de
 
 set laststatus=2
-"set statusline=(file\ ->\ %F)%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\ of\ %L,\ col\ %c)
+set statusline=(file\ ->\ %F)\ %m%r%h%w\ %{FugitiveStatusline()}%=(%{&ff}/%Y)\ (line\ %l\ of\ %L,\ col\ %c)
 
 set path+=**
+
+" Better leader key
+let mapleader="\<Space>"
+
+" Easier opening of the explorer 
 
 " Remaps
 imap jj <Esc>
@@ -62,10 +67,8 @@ imap jk <Esc>
 if has("autocmd")
    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-"
-"
-" Better leader key
-let mapleader="\<Space>"
+
+" CONFIGS
 
 " GitGutter config
 " faster update time
@@ -83,4 +86,5 @@ nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 " Fugitive.vim
 " Surround.vim
 " Repeat.vim
-" Commentary
+" Commentary.vim
+" Sensible.vim
